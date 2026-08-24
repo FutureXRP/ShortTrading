@@ -1,0 +1,159 @@
+<title>IPO Failure Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root {
+  --bg: #F6F5F1; --surface: #FFFFFF; --ink: #1C1B17; --muted: #6E6A5F;
+  --line: #E2DFD6; --accent: #B3223C; --accent-soft: #F6E7EA;
+  --good: #1E7F6B; --good-soft: #E4F0EC; --amber: #A66A00; --amber-soft: #F5EDDC;
+  --mut-soft: #ECEAE3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171B; --surface: #1D2025; --ink: #EBE9E2; --muted: #9A968B;
+    --line: #2E323A; --accent: #E05C72; --accent-soft: #3A2229;
+    --good: #45A98E; --good-soft: #1E3129; --amber: #D9A03F; --amber-soft: #33290F;
+    --mut-soft: #272B31;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171B; --surface: #1D2025; --ink: #EBE9E2; --muted: #9A968B;
+  --line: #2E323A; --accent: #E05C72; --accent-soft: #3A2229;
+  --good: #45A98E; --good-soft: #1E3129; --amber: #D9A03F; --amber-soft: #33290F;
+  --mut-soft: #272B31;
+}
+body { background: var(--bg); color: var(--ink); margin: 0;
+  font: 15px/1.55 "IBM Plex Sans", system-ui, sans-serif; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 56px; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums; }
+.strong { font-weight: 600; }
+.sub { color: var(--muted); font-size: 12.5px; }
+.num { text-align: right; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px;
+  border-bottom: 2px solid var(--ink); padding-bottom: 14px; margin-bottom: 20px; }
+h1 { font-family: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif;
+  font-size: 26px; font-weight: 600; letter-spacing: .01em; margin: 0;
+  text-wrap: balance; }
+h1 .v { color: var(--muted); font-weight: 500; }
+h2 { font-family: "IBM Plex Sans Condensed", sans-serif; font-size: 13px;
+  font-weight: 600; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 10px; }
+.pill { display: inline-block; padding: 2px 9px; border-radius: 999px;
+  font: 600 11.5px/1.6 "IBM Plex Sans Condensed", sans-serif;
+  letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.pill-short { background: var(--accent-soft); color: var(--accent); }
+.pill-good { background: var(--good-soft); color: var(--good); }
+.pill-amber { background: var(--amber-soft); color: var(--amber); }
+.pill-mut { background: var(--mut-soft); color: var(--muted); }
+.meta { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px; margin-bottom: 22px; }
+.kpi { background: var(--surface); border: 1px solid var(--line);
+  padding: 12px 14px; }
+.kpilabel { font: 600 11px/1.5 "IBM Plex Sans Condensed", sans-serif;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.kpival { font-size: 22px; font-weight: 600; margin-top: 2px; }
+.cols { display: grid; grid-template-columns: 3fr 2fr; gap: 22px; }
+@media (max-width: 800px) { .cols { grid-template-columns: 1fr; } }
+section { margin-bottom: 26px; }
+.tablewrap { overflow-x: auto; background: var(--surface);
+  border: 1px solid var(--line); }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th { text-align: left; font: 600 11px/1.4 "IBM Plex Sans Condensed", sans-serif;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th.num { text-align: right; }
+td { padding: 9px 12px; border-bottom: 1px solid var(--line);
+  vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+.scorecard, .ticket { background: var(--surface); border: 1px solid var(--line);
+  padding: 14px 16px; margin-bottom: 12px; }
+.scorehead, .tickethead { display: flex; justify-content: space-between;
+  align-items: center; gap: 10px; margin-bottom: 8px; font-size: 14px; }
+.signals { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+.signals li { display: flex; justify-content: space-between; gap: 12px;
+  padding: 4px 0; border-bottom: 1px dashed var(--line); }
+.signals li:last-child { border-bottom: 0; }
+.signals .miss { color: var(--muted); }
+.signals .hit span:last-child { color: var(--accent); font-weight: 600; }
+.ticket p { margin: 8px 0 0; font-size: 13.5px; }
+.grid2 { display: grid; grid-template-columns: auto 1fr; gap: 3px 18px;
+  font-size: 13px; }
+.tracker { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
+.daycell { border: 1px solid var(--line); background: var(--surface);
+  padding: 6px 4px; text-align: center; font-size: 11px; color: var(--muted);
+  display: grid; gap: 2px; }
+.daycell.done { border-color: var(--accent); color: var(--ink);
+  box-shadow: inset 0 3px 0 var(--accent); }
+.rules { font-size: 13px; margin: 0; padding-left: 18px; }
+.rules li { margin-bottom: 4px; }
+.log { background: var(--surface); border: 1px solid var(--line);
+  border-left: 3px solid var(--accent); padding: 12px 16px; font-size: 13.5px; }
+footer { margin-top: 30px; color: var(--muted); font-size: 12.5px;
+  border-top: 1px solid var(--line); padding-top: 12px; }
+</style>
+<div class="wrap">
+<header>
+  <h1>IPO Failure Desk <span class="v">v0.1</span></h1>
+  <div class="meta">
+    <span class="pill pill-amber">Sandbox · paper</span>
+    <span class="pill pill-good">Forward test active</span>
+    <span class="mono sub">day 1 / 10 · through 2026-08-24</span>
+  </div>
+</header>
+
+<div class="kpis"><div class="kpi"><div class="kpilabel">Current equity</div><div class="kpival mono">$500.00</div></div><div class="kpi"><div class="kpilabel">Realized P/L</div><div class="kpival mono">$0.00</div></div><div class="kpi"><div class="kpilabel">Unrealized P/L</div><div class="kpival mono">$0.00</div></div><div class="kpi"><div class="kpilabel">Gross short exposure</div><div class="kpival mono">$0.00</div><div class="sub">cap $1,000.00</div></div><div class="kpi"><div class="kpilabel">Closed trades</div><div class="kpival mono">0</div><div class="sub">0W / 0L</div></div><div class="kpi"><div class="kpilabel">Max drawdown</div><div class="kpival mono">0.0%</div></div></div>
+
+<div class="cols">
+<div>
+  <section>
+    <h2>IPO screening</h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Ticker</th><th>Company</th><th>IPO date</th>
+      <th class="num">IPO px</th><th class="num">D1 close</th>
+      <th class="num">Score</th><th>Status</th></tr></thead>
+      <tbody><tr><td class="mono strong">ADBT</td><td>Advasa Holdings, Inc.<div class='sub'>Direct listing (not a genuine operating-company IPO per section 8); begins trading 2026-08-25</div></td><td class="mono">2026-08-25</td><td class="mono num">—</td><td class="mono num">—</td><td class="mono num strong">—</td><td><span class="pill pill-mut">Excluded</span></td></tr>
+<tr><td class="mono strong">LYNX</td><td>Lyntris Inc.<div class='sub'>short at next open</div></td><td class="mono">2026-08-19</td><td class="mono num">$17.50</td><td class="mono num">$15.01</td><td class="mono num strong">6</td><td><span class="pill pill-amber">Entry pending</span></td></tr>
+<tr><td class="mono strong">NSAIU</td><td>NorthStrive Acquisition Corp I<div class='sub'>SPAC units</div></td><td class="mono">2026-08-18</td><td class="mono num">$10.00</td><td class="mono num">—</td><td class="mono num strong">—</td><td><span class="pill pill-mut">Excluded</span></td></tr>
+<tr><td class="mono strong">TBCVU</td><td>Thunder Bridge Capital Partners V<div class='sub'>SPAC units</div></td><td class="mono">2026-08-18</td><td class="mono num">$10.00</td><td class="mono num">—</td><td class="mono num strong">—</td><td><span class="pill pill-mut">Excluded</span></td></tr>
+<tr><td class="mono strong">XTERU</td><td>Karman Line Acquisition Corp<div class='sub'>SPAC units</div></td><td class="mono">2026-08-18</td><td class="mono num">$10.00</td><td class="mono num">—</td><td class="mono num strong">—</td><td><span class="pill pill-mut">Excluded</span></td></tr></tbody>
+    </table></div>
+  </section>
+  <section>
+    <h2>Failure score breakdown</h2>
+    <div class="scorecard"><div class="scorehead"><span class="mono strong">LYNX</span><span class="mono">score 6 / 11 · QUALIFIES</span></div><ul class="signals"><li class="hit"><span>Unprofitable (latest FY / TTM)</span><span class="mono">+2/2</span></li><li class="miss"><span>Revenue below $100M</span><span class="mono">0/1</span></li><li class="miss"><span>IPO valuation above 10× sales</span><span class="mono">0/1</span></li><li class="hit"><span>Priced below range or downsized</span><span class="mono">+1/1</span></li><li class="hit"><span>Secondary shares above 30%</span><span class="mono">+1/1</span></li><li class="hit"><span>Day-1 close below IPO price</span><span class="mono">+2/2</span></li><li class="miss"><span>Day-2 close below Day-1 low</span><span class="mono">0/2</span></li><li class="miss"><span>Day-2 volume below Day-1</span><span class="mono">0/1</span></li></ul></div>
+  </section>
+</div>
+<div>
+  <section>
+    <h2>Positions &amp; pending orders</h2>
+    <div class="ticket"><div class="tickethead"><span class="mono strong">LYNX</span><span class="pill pill-amber">Pending</span></div><p>Qualified 2026-08-24. Synthetic short $250.00 fills at the next observed open; levels set from that open: stop +10%, T1 −25% (cover half, stop to entry), T2 −50%, time stop 20 trading days.</p></div>
+  </section>
+  <section>
+    <h2>Forward test — 10 trading days</h2>
+    <div class="tracker"><div class="daycell done" title="2026-08-24"><span>D1</span><span class="mono">$500.00</span></div><div class="daycell"><span>D2</span><span class="mono">·</span></div><div class="daycell"><span>D3</span><span class="mono">·</span></div><div class="daycell"><span>D4</span><span class="mono">·</span></div><div class="daycell"><span>D5</span><span class="mono">·</span></div><div class="daycell"><span>D6</span><span class="mono">·</span></div><div class="daycell"><span>D7</span><span class="mono">·</span></div><div class="daycell"><span>D8</span><span class="mono">·</span></div><div class="daycell"><span>D9</span><span class="mono">·</span></div><div class="daycell"><span>D10</span><span class="mono">·</span></div></div>
+  </section>
+  <section>
+    <h2>Standing rules</h2>
+    <ul class="rules">
+      <li>Qualify at score ≥5 <em>and</em> one technical failure signal.</li>
+      <li>$250.00 per short · max 4 positions · $1,000.00 gross cap.</li>
+      <li>Stop +10% · T1 −25% covers half, stop to entry · T2 −50%.</li>
+      <li>Time stop 20 trading days · slippage 0.5% per fill · borrow 30%/yr.</li>
+      <li>Ambiguous intraday ordering: the stop is assumed to have hit first.</li>
+      <li>No hindsight; unknown data scores zero points.</li>
+    </ul>
+  </section>
+</div>
+</div>
+
+<section>
+  <h2>Latest daily log — 2026-08-24</h2>
+  <div class="log">Forward test day 1 (2026-08-24). Screen of IPOs from week of Aug 17-21: LYNX (Lyntris) genuine operating-company IPO; ADBT direct listing excluded; TBCVU/NSAIU/XTERU SPAC units excluded. QUALIFIED LYNX (score 6): synthetic short at next trading day&#x27;s open. Aug 24 intraday data unavailable to the sandbox, so qualification is recorded off data through Fri Aug 21.</div>
+</section>
+
+<footer>Paper trading only — $0 live capital. Regenerated from
+<span class="mono">sandbox_data/state.json</span> by <span class="mono">dashboard.py</span>
+after each processed trading day. Full history in <span class="mono">reports/</span>.</footer>
+</div>

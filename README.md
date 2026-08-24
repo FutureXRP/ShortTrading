@@ -43,7 +43,17 @@ python3 sandbox.py process-day --date YYYY-MM-DD
 # Inspection
 python3 sandbox.py score TKR
 python3 sandbox.py status
+
+# 4. Refresh the dashboard page
+python3 dashboard.py          # regenerates dashboard.html from state.json
 ```
+
+## Viewing the trial
+
+- **Dashboard**: `python3 dashboard.py` renders `dashboard.html` — open it in any
+  browser (it is also published as a Claude artifact page after each processed day).
+- **Daily reports**: one markdown file per trading day in `reports/`.
+- **Terminal**: `python3 sandbox.py status` prints live portfolio statistics.
 
 Rules enforced by the engine (from build.md): score ≥5 **and** a technical
 failure signal to qualify (fading volume alone never qualifies); entry at the

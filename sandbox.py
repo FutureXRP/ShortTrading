@@ -175,6 +175,7 @@ def cmd_process_day(args):
     else:
         notes = notes or "No qualifying IPOs and no position events today."
 
+    state.meta["last_notes"] = notes
     path = write_daily_report(state, date, day_number, notes)
     state.save()
 

@@ -9,7 +9,8 @@
     "max_gross_exposure": 1000.0,
     "forward_test_start": "2026-08-24",
     "forward_test_trading_days": 10,
-    "status": "active"
+    "status": "active",
+    "last_notes": "Forward test day 1 (2026-08-24). Screen of IPOs from week of Aug 17-21: LYNX (Lyntris) genuine operating-company IPO; ADBT direct listing excluded; TBCVU/NSAIU/XTERU SPAC units excluded. QUALIFIED LYNX (score 6): synthetic short at next trading day's open. Aug 24 intraday data unavailable to the sandbox, so qualification is recorded off data through Fri Aug 21."
   },
   "candidates": {
     "LYNX": {
