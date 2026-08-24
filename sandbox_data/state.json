@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "system": "IPO Failure Short System",
+    "strategy_version": "0.1",
+    "environment": "sandbox",
+    "mode": "paper",
+    "live_capital": 0.0,
+    "starting_capital": 500.0,
+    "max_gross_exposure": 1000.0,
+    "forward_test_start": "2026-08-24",
+    "forward_test_trading_days": 10,
+    "status": "active"
+  },
+  "candidates": {
+    "LYNX": {
+      "ticker": "LYNX",
+      "company": "Lyntris Inc.",
+      "ipo_date": "2026-08-19",
+      "ipo_price": 17.5,
+      "range_low": 19.0,
+      "range_high": 22.0,
+      "downsized": true,
+      "revenue": 450840000.0,
+      "profitable": false,
+      "market_cap": 2080000000.0,
+      "secondary_pct": 0.665,
+      "excluded": false,
+      "exclusion_reason": "",
+      "notes": "Defense-tech roll-up (Trive Capital: Accelint+Vitesse). TTM rev $450.8M, net loss $11.8M. Marketed 24M sh @ $19-22; priced 17M sh @ $17.50 (downsized+below range). ~11.3M of 17M sh secondary (~66%). Sources: Bloomberg/Reuters/SeekingAlpha/StockTitan via web search 2026-08-24. Bar fields marked unknown in bars use conservative placeholders (D1 volume unknown=0 so D2-volume signal scores 0; D1 low set to close 15.01 upper bound; D2 close 15.71 > 15.01 so no breakdown signal either way).",
+      "bars": [
+        {
+          "date": "2026-08-19",
+          "open": 15.5,
+          "high": 15.5,
+          "low": 15.01,
+          "close": 15.01,
+          "volume": 0.0
+        },
+        {
+          "date": "2026-08-20",
+          "open": 15.01,
+          "high": 15.71,
+          "low": 15.01,
+          "close": 15.71,
+          "volume": 2409370.0
+        },
+        {
+          "date": "2026-08-21",
+          "open": 15.71,
+          "high": 15.71,
+          "low": 15.01,
+          "close": 15.01,
+          "volume": 0.0
+        }
+      ]
+    },
+    "ADBT": {
+      "ticker": "ADBT",
+      "company": "Advasa Holdings, Inc.",
+      "ipo_date": "2026-08-25",
+      "ipo_price": 0.0,
+      "range_low": null,
+      "range_high": null,
+      "downsized": false,
+      "revenue": null,
+      "profitable": null,
+      "market_cap": null,
+      "secondary_pct": null,
+      "excluded": true,
+      "exclusion_reason": "Direct listing (not a genuine operating-company IPO per section 8); begins trading 2026-08-25",
+      "notes": "",
+      "bars": []
+    },
+    "TBCVU": {
+      "ticker": "TBCVU",
+      "company": "Thunder Bridge Capital Partners V",
+      "ipo_date": "2026-08-18",
+      "ipo_price": 10.0,
+      "range_low": null,
+      "range_high": null,
+      "downsized": false,
+      "revenue": null,
+      "profitable": null,
+      "market_cap": null,
+      "secondary_pct": null,
+      "excluded": true,
+      "exclusion_reason": "SPAC units",
+      "notes": "",
+      "bars": []
+    },
+    "NSAIU": {
+      "ticker": "NSAIU",
+      "company": "NorthStrive Acquisition Corp I",
+      "ipo_date": "2026-08-18",
+      "ipo_price": 10.0,
+      "range_low": null,
+      "range_high": null,
+      "downsized": false,
+      "revenue": null,
+      "profitable": null,
+      "market_cap": null,
+      "secondary_pct": null,
+      "excluded": true,
+      "exclusion_reason": "SPAC units",
+      "notes": "",
+      "bars": []
+    },
+    "XTERU": {
+      "ticker": "XTERU",
+      "company": "Karman Line Acquisition Corp",
+      "ipo_date": "2026-08-18",
+      "ipo_price": 10.0,
+      "range_low": null,
+      "range_high": null,
+      "downsized": false,
+      "revenue": null,
+      "profitable": null,
+      "market_cap": null,
+      "secondary_pct": null,
+      "excluded": true,
+      "exclusion_reason": "SPAC units",
+      "notes": "",
+      "bars": []
+    }
+  },
+  "positions": [],
+  "equity_history": [
+    {
+      "date": "2026-08-24",
+      "equity": 500.0
+    }
+  ],
+  "processed_days": [
+    "2026-08-24"
+  ],
+  "pending_entries": [
+    {
+      "ticker": "LYNX",
+      "qualification_date": "2026-08-24"
+    }
+  ]
+}

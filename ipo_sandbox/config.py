@@ -1,0 +1,34 @@
+"""Version 0.1 sandbox rules from build.md (section 60)."""
+
+STRATEGY_VERSION = "0.1"
+
+STARTING_CAPITAL = 500.00
+POSITION_NOTIONAL = 250.00
+MAX_POSITIONS = 4
+MAX_GROSS_EXPOSURE = 1000.00
+
+STOP_PCT = 0.10           # initial stop 10% above entry
+TARGET1_PCT = 0.25        # cover half at -25%
+TARGET1_COVER_FRACTION = 0.50
+TARGET2_PCT = 0.50        # cover remainder at -50%
+TIME_STOP_TRADING_DAYS = 20
+
+SLIPPAGE_PCT = 0.005      # 0.5% against us on every entry and exit
+BORROW_RATE_ANNUAL = 0.30 # 30% annualized default, prorated by calendar days / 365
+
+MIN_QUALIFYING_SCORE = 5
+FORWARD_TEST_TRADING_DAYS = 10
+
+# Scoring weights (section 17)
+SCORE_UNPROFITABLE = 2
+SCORE_REVENUE_BELOW_100M = 1
+SCORE_VALUATION_ABOVE_10X = 1
+SCORE_WEAK_OFFERING = 1        # priced below range/midpoint OR materially downsized (one point total)
+SCORE_SECONDARY_ABOVE_30PCT = 1
+SCORE_DAY1_CLOSE_BELOW_IPO = 2
+SCORE_DAY2_CLOSE_BELOW_DAY1_LOW = 2
+SCORE_DAY2_VOLUME_BELOW_DAY1 = 1
+
+REVENUE_THRESHOLD = 100_000_000.0
+VALUATION_MULTIPLE_THRESHOLD = 10.0
+SECONDARY_SHARE_THRESHOLD = 0.30
