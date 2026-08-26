@@ -10,7 +10,7 @@
     "forward_test_start": "2026-08-24",
     "forward_test_trading_days": 10,
     "status": "active",
-    "last_notes": "Forward test day 1 (2026-08-24). Screen of IPOs from week of Aug 17-21: LYNX (Lyntris) genuine operating-company IPO; ADBT direct listing excluded; TBCVU/NSAIU/XTERU SPAC units excluded. QUALIFIED LYNX (score 6): synthetic short at next trading day's open. Aug 24 intraday data unavailable to the sandbox, so qualification is recorded off data through Fri Aug 21."
+    "last_notes": "Day 3. Aug 26 session verified from user-provided Yahoo Finance quote (open 15.06, high 15.20, low 13.50, close 13.94, vol 1,125,199). Data-integrity note: earlier third-party snapshots disagreed on which of Aug 20/21 closed 15.55 vs 15.71; under every reading day-2 closed above day-1's close, so the score (6) and qualification are unaffected. ENTERED short LYNX at open 15.06 (effective 14.98, 16.60 sh, stop 16.57, T1 11.29, T2 7.53)."
   },
   "candidates": {
     "LYNX": {
@@ -52,6 +52,14 @@
           "low": 15.01,
           "close": 15.01,
           "volume": 0.0
+        },
+        {
+          "date": "2026-08-26",
+          "open": 15.06,
+          "high": 15.2,
+          "low": 13.5,
+          "close": 13.94,
+          "volume": 1125199.0
         }
       ]
     },
@@ -124,20 +132,45 @@
       "bars": []
     }
   },
-  "positions": [],
+  "positions": [
+    {
+      "ticker": "LYNX",
+      "qualification_date": "2026-08-24",
+      "entry_date": "2026-08-26",
+      "entry_price_raw": 15.06,
+      "entry_price_effective": 14.9847,
+      "shares": 16.600265604249667,
+      "notional": 250.0,
+      "stop_price": 16.566000000000003,
+      "target1": 11.295,
+      "target2": 7.53,
+      "remaining_fraction": 1.0,
+      "stop_moved_to_entry": false,
+      "trading_days_held": 1,
+      "open": true,
+      "fills": [],
+      "max_favorable_price": 13.5,
+      "max_adverse_price": 15.2
+    }
+  ],
   "equity_history": [
     {
       "date": "2026-08-24",
       "equity": 500.0
+    },
+    {
+      "date": "2026-08-25",
+      "equity": 500.0
+    },
+    {
+      "date": "2026-08-26",
+      "equity": 517.34
     }
   ],
   "processed_days": [
-    "2026-08-24"
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26"
   ],
-  "pending_entries": [
-    {
-      "ticker": "LYNX",
-      "qualification_date": "2026-08-24"
-    }
-  ]
+  "pending_entries": []
 }
