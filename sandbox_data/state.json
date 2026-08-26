@@ -10,7 +10,7 @@
     "forward_test_start": "2026-08-24",
     "forward_test_trading_days": 10,
     "status": "active",
-    "last_notes": "Day 3. Aug 26 session verified from user-provided Yahoo Finance quote (open 15.06, high 15.20, low 13.50, close 13.94, vol 1,125,199). Data-integrity note: earlier third-party snapshots disagreed on which of Aug 20/21 closed 15.55 vs 15.71; under every reading day-2 closed above day-1's close, so the score (6) and qualification are unaffected. ENTERED short LYNX at open 15.06 (effective 14.98, 16.60 sh, stop 16.57, T1 11.29, T2 7.53)."
+    "last_notes": "Day 4. Aug 27 session verified from user-provided Yahoo Finance quote at the close (O 13.81, H 14.22, L 12.97, C 13.65, V 1,257,598). New all-time low 12.97; afternoon bounce to 14.22 stayed far below the 16.57 stop; T1 11.29 untouched. Volume 1.26M vs 3.15M average - fading interest as price sinks."
   },
   "candidates": {
     "LYNX": {
@@ -60,6 +60,14 @@
           "low": 13.5,
           "close": 14.01,
           "volume": 1125199.0
+        },
+        {
+          "date": "2026-08-27",
+          "open": 13.81,
+          "high": 14.22,
+          "low": 12.97,
+          "close": 13.65,
+          "volume": 1257598.0
         }
       ]
     },
@@ -146,10 +154,10 @@
       "target2": 7.53,
       "remaining_fraction": 1.0,
       "stop_moved_to_entry": false,
-      "trading_days_held": 1,
+      "trading_days_held": 2,
       "open": true,
       "fills": [],
-      "max_favorable_price": 13.5,
+      "max_favorable_price": 12.97,
       "max_adverse_price": 15.2
     }
   ],
@@ -165,12 +173,17 @@
     {
       "date": "2026-08-26",
       "equity": 516.18
+    },
+    {
+      "date": "2026-08-27",
+      "equity": 522.16
     }
   ],
   "processed_days": [
     "2026-08-24",
     "2026-08-25",
-    "2026-08-26"
+    "2026-08-26",
+    "2026-08-27"
   ],
   "pending_entries": []
 }
