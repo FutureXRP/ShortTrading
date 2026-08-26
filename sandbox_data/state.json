@@ -27,7 +27,7 @@
       "secondary_pct": 0.665,
       "excluded": false,
       "exclusion_reason": "",
-      "notes": "Defense-tech roll-up (Trive Capital: Accelint+Vitesse). TTM rev $450.8M, net loss $11.8M. Marketed 24M sh @ $19-22; priced 17M sh @ $17.50 (downsized+below range). ~11.3M of 17M sh secondary (~66%). Sources: Bloomberg/Reuters/SeekingAlpha/StockTitan via web search 2026-08-24. Bar fields marked unknown in bars use conservative placeholders (D1 volume unknown=0 so D2-volume signal scores 0; D1 low set to close 15.01 upper bound; D2 close 15.71 > 15.01 so no breakdown signal either way).",
+      "notes": "Defense-tech roll-up (Trive Capital: Accelint+Vitesse). TTM rev $450.8M, net loss $11.8M. Marketed 24M sh @ $19-22; priced 17M sh @ $17.50 (downsized+below range). ~11.3M of 17M sh secondary (~66%). Sources: Bloomberg/Reuters/SeekingAlpha/StockTitan via web search 2026-08-24. Bar fields marked unknown in bars use conservative placeholders (D1 volume unknown=0 so D2-volume signal scores 0; D1 low set to close 15.01 upper bound; D2 close 15.71 > 15.01 so no breakdown signal either way). Correction 2026-08-27: Aug 26 close amended 13.94 -> 14.01; the 13.94 initially recorded was the after-hours print, 14.01 is the official close per next-day prev-close on Yahoo Finance.",
       "bars": [
         {
           "date": "2026-08-19",
@@ -58,7 +58,7 @@
           "open": 15.06,
           "high": 15.2,
           "low": 13.5,
-          "close": 13.94,
+          "close": 14.01,
           "volume": 1125199.0
         }
       ]
@@ -164,7 +164,7 @@
     },
     {
       "date": "2026-08-26",
-      "equity": 517.34
+      "equity": 516.18
     }
   ],
   "processed_days": [
