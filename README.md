@@ -48,6 +48,30 @@ python3 sandbox.py status
 python3 dashboard.py          # regenerates dashboard.html from state.json
 ```
 
+## Alpaca paper integration (Phase 4 scaffold)
+
+`broker.py` wires the sandbox to Alpaca's **paper** trading API for integration
+testing. It is hard-pinned to the paper endpoint — it refuses to run against a
+live URL, and orders are whole-share only. Setup (keys never go in the repo):
+
+```bash
+export APCA_API_KEY_ID="...paper key id..."
+export APCA_API_SECRET_KEY="...paper secret..."
+
+python3 broker.py check            # verify keys, paper account, market clock
+python3 broker.py shortable LYNX   # borrow check (build.md section 31)
+python3 broker.py sync-bars        # pull daily OHLCV into the sandbox
+python3 broker.py mirror           # dry-run reconcile paper book to sandbox book
+python3 broker.py mirror --execute # submit the paper orders
+python3 broker.py status           # Alpaca account, positions, open orders
+```
+
+Daily flow with Alpaca connected: `sync-bars` → `sandbox.py process-day` for
+each new date (oldest first) → `mirror --execute` → `dashboard.py`. The sandbox
+stays the decision engine and record of truth; Alpaca paper measures execution
+reality (borrow rejections, whole-share rounding, real fills vs. the 0.5%
+slippage model).
+
 ## Viewing the trial
 
 - **Dashboard**: `python3 dashboard.py` renders `dashboard.html` — open it in any
